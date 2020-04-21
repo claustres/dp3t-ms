@@ -8,7 +8,12 @@
     "start:exposed-keys": "micro services/exposed-keys",
     "dev:exposed-keys": "micro-dev -p 5001 services/exposed-keys",
     "start:codes": "micro services/codes",
-    "dev:codes": "micro-dev -p 5002 services/codes"
+    "dev:codes": "micro-dev -p 5002 services/codes",
+    "mocha:codes": "mocha --inspect --exit tests/codes.test.js",
+    "mocha:exposed-keys": "mocha --inspect --exit tests/exposed-keys.test.js",
+    "mocha": "mocha --inspect --exit tests/**/*.test.js",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --exit tests/**/*.test.js",
+    "test": "npm run coverage"
   },
   "dependencies": {
     "date-fns": "^2.12.0",
@@ -23,7 +28,10 @@
   },
   "devDependencies": {
     "ava": "^3.6.0",
+    "chai": "^4.2.0",
+    "istanbul": "^1.1.0-alpha.1",
     "micro-dev": "^3.0.0",
+    "mocha": "^7.1.1",
     "xo": "^0.29.0"
   },
   "xo": {

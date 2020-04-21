@@ -159,6 +159,9 @@ yarn
 ### Run
 
 ```bash
+# To run a local redis through Docker
+docker run --name redis -d -p 6379:6379 redis
+
 # To run the "exposed keys" microservice (will listen en port 5001)
 yarn dev:exposed-keys
 

@@ -1,10 +1,15 @@
 const micro = require('micro')
-const http = require('http')
 const got = require('got')
+const utility = require('util')
 const chai = require('chai')
+const nock = require('nock')
 const service = require('../services/exposed-keys')
 
 const expect = chai.expect
+const exposedKeysPort = 5001
+const codesPort = 5002
+const exposedKeysUrl = `http://localhost:${exposedKeysPort}`
+const codesUrl = `http://localhost:${codesPort}`
 
 function waitForListen (server) {
   return new Promise((resolve, reject) => {
@@ -13,17 +18,24 @@ function waitForListen (server) {
 }
 
 describe('dp3t:exposed-keys', () => {
-  const port = 3000
-  const prefixUrl = `http://localhost:${port}`
-  const request = got.extend({ prefixUrl, responseType: 'json' })
+  const request = got.extend({
+    prefixUrl: exposedKeysUrl,
+    responseType: 'json',
+    resolveBodyOnly: true
+  })
   let server
 
   it('start the service', async () => {
-    server = new http.Server(micro(service))
-    await waitForListen(server.listen(port))
+    server = micro(service)
+    await waitForListen(server.listen(exposedKeysPort))
   })
-  /*
-  it('declare key', async () => {
+  
+  it('declare exposed key', async () => {
+    // Mock code service
+    nock(codesUrl)
+    .post('/use-code')
+    .reply(200, {})
+
     const response = await request('exposed', {
       method: 'POST',
       json: {
@@ -35,17 +47,20 @@ describe('dp3t:exposed-keys', () => {
         }
       }
     })
-    expect(response)
   })
+  // Let enough time to process
+  .timeout(5000)
   
-  it('get keys', async () => {
+  it('get exposed keys for date', async () => {
     const response = await request('exposed/2020-04-10', { method: 'GET' })
-    expect(response).to.deep.equal({
+    expect(response).to.deep.equal([{
       key: 'QUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVpBQkNERUY=',
       onset: '2020-04-10'
-    })
+    }])
   })
-  */
+  // Let enough time to process
+  .timeout(5000)
+  
   // Cleanup
   after(async () => {
     await server.close()

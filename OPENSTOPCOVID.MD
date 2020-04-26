@@ -31,8 +31,8 @@ The global architecture is depicted by the following diagram:
 
 The main components of OpenStopCovid are the following:
 * [Backend microservices](https://github.com/OpenStopCovid/dp3t-ms)
-  * [exposed-keys] microservice to publish exposed keys and get a list of exposed keys
-  * [codes] microservice to create and use validation codes to declare sick patients
+  * `exposed-keys` microservice to publish exposed keys and get a list of exposed keys
+  * `codes` microservice to create and use validation codes to declare sick patients
 * [User interface for physicians](https://github.com/OpenStopCovid/health-authority-ui) in order to generate validation codes for sick patients
 * [Android application]() relying on [DP-3T SDK](https://github.com/DP-3T/dp3t-sdk-android) for end-users
 * [iOS application]() relying on [DP-3T SDK](https://github.com/DP-3T/dp3t-sdk-ios) for end-users

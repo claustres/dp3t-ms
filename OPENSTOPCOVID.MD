@@ -21,7 +21,9 @@ Although all procols have been publicly published, only BlueTrace proposes an Op
 
 So far no reference implementation has been published for ROBERT. Moreover, the choice of a centralized approach makes it hardly compatible with the contact tracing framework of Google and Apple. Indeed, Bluetooth tracking on mobile devices requires privileged access to the system in order to work efficiently.
 
-As a consequence, we selected [DP-3T](https://github.com/DP-3T/documents) as the underlying technology to provide our reference implementation. We strongly believe that a easy-to-install, cloud-agnostic, 100% Open Source application is mandatory to increase trust and allow large scale deployment at the level of what is at stake.
+As a consequence, we selected the decentralized [DP-3T](https://github.com/DP-3T/documents) approach as the underlying technology to provide our reference implementation. Currently it is based on the Design 1, which is less complex and more pluggable to the contact tracing framework.
+
+We strongly believe that an easy-to-install, cloud-agnostic, 100% Open Source application is mandatory to increase trust and allow large scale deployment at the level of what is at stake. However, we are also convinced that this technology should only be one piece in the puzzle of the investigative work and keeping human-in-the-loop is important. Contact tracing is inherently "invasive", whatever the technical measures in place to protect against deanonymisation, so the key to protect privacy as much as possible is also in the operational processes, the governance and oversight of the authorities conducting it.
 
 ## What's inside ?
 

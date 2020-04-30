@@ -9,6 +9,10 @@ Mobile tracing apps have a potential to support our efforts to limit the spread 
 * people can receive instructions on which further actions to take from public health authorities
 * epidemiologists could receive anonymous or pseudonymous research information about the spread from volunteering users
 
+## Disclaimer
+
+Contact tracing technology using mobile applications is under active investigation and development for deployment by different countries. However, it has never been tested at a wide scale and its effectiveness is controversial. As stated by our Open Source licence please note that the software is thus provided "as is", without warranty of any kind. Would you want to deploy your own instance please ensure it complies with the applicable laws or required certifications in your country, state or province.
+
 ## Why OpenStopcovid ?
 
 Different initiatives have been taken to tackle the underlying technical difficulties of contact tracing:
